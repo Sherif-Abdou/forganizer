@@ -1,4 +1,4 @@
-const organizer = require("../src/organizer");
+const organizer = require("../dist/organizer");
 const path = require("path");
 const fs = require("fs");
 const rimraf = require("rimraf")

@@ -1,13 +1,18 @@
-const fs = require("fs")
-const path = require("path")
+import fs = require("fs")
+import path = require("path")
 
-module.exports.loadConfig = function(path) {
+interface Configuration {
+    name: string
+    extensions: string[]
+}
+
+export function loadConfig(path: string): Configuration[] {
     let file = fs.readFileSync(path);
-    let json = JSON.parse(file);
+    let json = JSON.parse(file.toString());
     return json
 }
 
-module.exports.setUpDirectories = function(dir_path, config) {
+export function setUpDirectories(dir_path: string, config: Configuration[]) {
     config.forEach(ext => {
         let dest_path = path.join(dir_path, ext.name);
         if (!fs.existsSync(dest_path)) {
@@ -16,7 +21,7 @@ module.exports.setUpDirectories = function(dir_path, config) {
     });
 }
 
-module.exports.sortFiles = function(dir_path, config) {
+export function sortFiles(dir_path: string, config: Configuration[]) {
     let files = fs.readdirSync(dir_path);
     files.forEach(file => {
         const full_path = path.join(dir_path, file);

@@ -2,12 +2,14 @@
   "name": "forganizer",
   "version": "1.0.1",
   "description": "File organizer",
-  "main": "index.js",
+  "main": "dist/cli.js",
+  "types": "dist/cli.d.ts",
   "directories": {
     "test": "test"
   },
   "dependencies": {
     "@types/chai": "^4.2.1",
+    "@types/node": "^12.7.4",
     "minimist": "^1.2.0",
     "rimraf": "^3.0.0"
   },
