@@ -2,5 +2,13 @@
     {
         "name": "Audio Files",
         "extensions": [".mp3", ".wav"]
+    },
+    {
+        "name": "Applications",
+        "extensions": ["app", "exe", "jar", "apk", "bat"]
+    },
+    {
+        "name": "Images",
+        "extensions":  ["png", "jpeg", "gif", "HEIC", "jpg"]
     }
 ]
