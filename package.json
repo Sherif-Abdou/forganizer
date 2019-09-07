@@ -7,15 +7,17 @@
     "test": "test"
   },
   "dependencies": {
-    "rimraf": "^3.0.0",
-    "ts-mocha": "^6.0.0",
-    "typescript": "^3.6.2"
+    "minimist": "^1.2.0",
+    "rimraf": "^3.0.0"
   },
   "devDependencies": {
     "mocha": "^6.2.0"
   },
   "scripts": {
     "test": "mocha"
+  },
+  "bin": {
+    "forganizer": "bin/forganizer"
   },
   "repository": {
     "type": "git",

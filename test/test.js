@@ -6,14 +6,14 @@ const rimraf = require("rimraf")
 describe("organizer", () => {
     it("loads config file", () => {
         let config = organizer.loadConfig(path.join(__dirname,"..","config.json"))
-    })
+    });
 
     it("creates folders based on config", () => {
         rimraf.sync(path.join(__dirname,"files"))
         fs.mkdirSync(path.join(__dirname,"files"))
         let config = organizer.loadConfig(path.join(__dirname,"..","config.json"))
         organizer.setUpDirectories(path.join(__dirname,"files"), config);
-    })
+    });
 
     it("sorts files", () => {
         rimraf.sync(path.join(__dirname,"files"));
@@ -24,5 +24,5 @@ describe("organizer", () => {
         let config = organizer.loadConfig(path.join(__dirname,"..","config.json"));
         organizer.setUpDirectories(path.join(__dirname,"files"), config);
         organizer.sortFiles(path.join(__dirname,"files"), config);
-    })
+    });
 })
