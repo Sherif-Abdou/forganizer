@@ -2,6 +2,7 @@ const organizer = require("../src/organizer");
 const path = require("path");
 const fs = require("fs");
 const rimraf = require("rimraf")
+const expect = require("chai").expect
 
 describe("organizer", () => {
     it("loads config file", () => {
@@ -13,9 +14,10 @@ describe("organizer", () => {
         fs.mkdirSync(path.join(__dirname,"files"))
         let config = organizer.loadConfig(path.join(__dirname,"..","config.json"))
         organizer.setUpDirectories(path.join(__dirname,"files"), config);
+        expect(fs.existsSync(path.join(__dirname,"files","Images"))).to.be.equal(true, "Images folder not made");
     });
 
-    it("sorts files", () => {
+    it("sorts files based on extensions", () => {
         rimraf.sync(path.join(__dirname,"files"));
         fs.mkdirSync(path.join(__dirname,"files"));
         fs.writeFileSync(path.join(__dirname, "files", "a.png"), null);
@@ -24,5 +26,6 @@ describe("organizer", () => {
         let config = organizer.loadConfig(path.join(__dirname,"..","config.json"));
         organizer.setUpDirectories(path.join(__dirname,"files"), config);
         organizer.sortFiles(path.join(__dirname,"files"), config);
+        expect(fs.existsSync(path.join(__dirname, "files", "Images","a.png"))).equals(true);
     });
 })
