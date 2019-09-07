@@ -1,7 +1,8 @@
 const fs = require("fs")
 
-module.exports.listDirectory = function listDirectory(directory) {
-    let output = fs.readdirSync(directory);
-    return output
-} 
+module.exports.loadConfig = function(path) {
+    let file = fs.readFileSync(path);
+    let json = JSON.parse(file);
+    return json
+}
 
